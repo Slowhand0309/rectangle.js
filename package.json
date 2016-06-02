@@ -1,0 +1,18 @@
+{
+  "name": "rectangle.js",
+  "version": "0.0.1",
+  "description": "Simple rectangle in JavaScript.",
+  "main": "rectangle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rectangle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Slowhand0309/rectangle.js.git"
+  },
+  "author": "Slowhand0309",
+  "license": "MIT"
+}
