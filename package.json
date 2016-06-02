@@ -14,5 +14,9 @@
     "url": "https://github.com/Slowhand0309/rectangle.js.git"
   },
   "author": "Slowhand0309",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jasmine": "^1.0.3"
+  }
 }

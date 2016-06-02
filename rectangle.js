@@ -1,5 +1,6 @@
 // rectangle.js
 //
+'use strict';
 
 /**
  * Constructor.
@@ -145,7 +146,7 @@ Rectangle.prototype.containsWithPadding = function(x, y, padding) {
  * @param rect Limit rectangle
  */
 Rectangle.prototype.limit = function(rect) {
-  if (rect != null && rect instaneof Rectangle) {
+  if (rect != null && rect instanceof Rectangle) {
     if (this.x < rect.x) {
       this.x = rect.x;
     }
