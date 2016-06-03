@@ -14,10 +14,10 @@ var Rectangle = function() {
 /**
  * Set rectangle value.
  *
- * @param x Rectangle x
- * @param y Rectangle y
- * @param width Rectangle width
- * @param height Rectangle height
+ * @param {Number} x
+ * @param {Number} y
+ * @param {Number} width
+ * @param {Number} height
  */
 Rectangle.prototype.set = function(x, y, width, height) {
   this.x = x;
@@ -29,10 +29,10 @@ Rectangle.prototype.set = function(x, y, width, height) {
 /**
  * Set rectangle corner value.
  *
- * @param left Rectangle left
- * @param top Rectangle top
- * @param right Rectangle right
- * @param bottom Rectangle bottom
+ * @param {Number} left
+ * @param {Number} top
+ * @param {Number} right
+ * @param {Number} bottom
  */
 Rectangle.prototype.corner = function(left, top, right, bottom) {
   this.x = left;
@@ -44,7 +44,7 @@ Rectangle.prototype.corner = function(left, top, right, bottom) {
 /**
  * Copy other rectangle object.
  *
- * @param obj Other rectangle
+ * @param {Rectangle} obj
  */
 Rectangle.prototype.copy = function(obj) {
   if (obj != null && obj instanceof Rectangle) {
@@ -58,7 +58,7 @@ Rectangle.prototype.copy = function(obj) {
 /**
  * Check for empty rectangle object.
  *
- * @return true if rectangle value all zero
+ * @return {Boolean} true if rectangle value all zero
  */
 Rectangle.prototype.empty = function() {
   if (this.x == 0 && this.y == 0 && this.width == 0 && this.height == 0) {
@@ -70,7 +70,7 @@ Rectangle.prototype.empty = function() {
 /**
  * Get rectangle left.
  *
- * @return left
+ * @return {Number} left
  */
 Rectangle.prototype.left = function() {
   return this.x;
@@ -79,7 +79,7 @@ Rectangle.prototype.left = function() {
 /**
  * Get rectangle top.
  *
- * @return top
+ * @return {Number} top
  */
 Rectangle.prototype.top = function() {
   return this.y;
@@ -88,7 +88,7 @@ Rectangle.prototype.top = function() {
 /**
  * Get rectangle right.
  *
- * @return right
+ * @return {Number} right
  */
 Rectangle.prototype.right = function() {
   return this.x + this.width;
@@ -97,17 +97,35 @@ Rectangle.prototype.right = function() {
 /**
  * Get rectangle bottom.
  *
- * @return right
+ * @return {Number} bottom
  */
 Rectangle.prototype.bottom = function() {
   return this.y + this.height;
 };
 
 /**
+ * Get rectangle center x.
+ *
+ * @return {Number} center x
+ */
+Rectangle.prototype.centerX = function() {
+  return this.x + Math.floor(this.width / 2);
+};
+
+/**
+ * Get rectangle center y.
+ *
+ * @return {Number} center y
+ */
+Rectangle.prototype.centerY = function() {
+  return this.y + Math.floor(this.height / 2);
+};
+
+/**
  * Move rectangle.
  *
- * @param dx amount of movement x
- * @param dy amount of movement y
+ * @param {Number} dx amount of movement x
+ * @param {Number} dy amount of movement y
  */
 Rectangle.prototype.move = function(dx, dy) {
   this.x += dx;
@@ -115,21 +133,38 @@ Rectangle.prototype.move = function(dx, dy) {
 };
 
 /**
+ * Scale rectangle from center.
+ *
+ * @param {Number} sx scale of x
+ * @param {Number} sy scale of y
+ */
+Rectangle.prototype.scale = function(sx, sy) {
+
+  var diffX = this.width * sx - this.width;
+  var diffY = this.height * sy - this.height;
+
+  this.x -= (diffX / 2);
+  this.y -= (diffY / 2);
+  this.width *= sx;
+  this.height *= sy;
+};
+
+/**
  * Check for contains coordinate in rectangle.
  *
- * @param x
- * @param y
+ * @param {Number} x
+ * @param {Number} y
  */
 Rectangle.prototype.contains = function(x, y) {
-  this.containsWithPadding(x, y, 0);
+  return this.containsWithPadding(x, y, 0);
 };
 
 /**
  * Check for contains coordinate in rectangle with padding.
  *
- * @param x
- * @param y
- * @param padding
+ * @param {Number} x
+ * @param {Number} y
+ * @param {Number} padding
  */
 Rectangle.prototype.containsWithPadding = function(x, y, padding) {
 
@@ -143,7 +178,7 @@ Rectangle.prototype.containsWithPadding = function(x, y, padding) {
 /**
  * Update rectangle value by limit.
  *
- * @param rect Limit rectangle
+ * @param {Rectangle} rect Limit rectangle
  */
 Rectangle.prototype.limit = function(rect) {
   if (rect != null && rect instanceof Rectangle) {
@@ -153,24 +188,11 @@ Rectangle.prototype.limit = function(rect) {
     if (this.y < rect.y) {
       this.y = rect.y;
     }
-    if (this.width < rect.width) {
+    if (this.right() > rect.right()) {
       this.width = rect.width;
     }
-    if (this.height < rect.height) {
+    if (this.bottom() > rect.bottom()) {
       this.height = rect.height;
     }
   }
-};
-
-/**
- * Scale rectangle.
- *
- * @param sx scale of x
- * @param sy scale of y
- */
-Rectangle.prototype.scale = function(sx, sy) {
-  this.x *= sx;
-  this.y *= sy;
-  this.width *= sx;
-  this.height *= sy;
 };
