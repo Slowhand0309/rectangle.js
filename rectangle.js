@@ -1,5 +1,6 @@
 // rectangle.js
 //
+(function(global) {
 'use strict';
 
 /**
@@ -196,3 +197,10 @@ Rectangle.prototype.limit = function(rect) {
     }
   }
 };
+
+if ("process" in global) {
+    module["exports"] = Rectangle;
+}
+global["Rectangle"] = Rectangle;
+
+})((this || 0).self || global);
