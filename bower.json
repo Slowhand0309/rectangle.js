@@ -1,5 +1,6 @@
 {
   "name": "rectangle.js",
+  "version": "0.0.1",
   "description": "Simple rectangle in JavaScript.",
   "main": "rectangle.js",
   "authors": [
@@ -10,7 +11,6 @@
     "rectangle"
   ],
   "homepage": "https://github.com/Slowhand0309/rectangle.js",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
