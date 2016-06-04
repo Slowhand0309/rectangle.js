@@ -1,6 +1,8 @@
 # rectangle.js
 Simple rectangle in JavaScript.
 
+![travis-ci](https://travis-ci.org/Slowhand0309/rectangle.js.svg?branch=master)
+
 ## Usage
 
 #### Creating a rectangle
