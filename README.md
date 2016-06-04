@@ -5,6 +5,12 @@ Simple rectangle in JavaScript.
 
 ## Usage
 
+```sh
+$ bower install rectangle.js
+```
+
+## Usage
+
 #### Creating a rectangle
 
 ```js
