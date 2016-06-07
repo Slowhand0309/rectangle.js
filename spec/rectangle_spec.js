@@ -102,6 +102,20 @@ describe("Rectangle position", function() {
      });
 });
 
+describe("Rectangle movable scalable", function() {
+
+     it("movable", function (){
+        var rectangle = new Rectangle();
+        rectangle.set(5, 15, 150, 150);
+        var limit = new Rectangle();
+        limit.set(5, 10, 200, 200);
+        expect(rectangle.isMovable(5, 5, limit)).toBe(true);
+     });
+
+    //  it("scalable", function (){
+    //  });
+});
+
 describe("Rectangle move scale", function() {
 
      it("move", function (){

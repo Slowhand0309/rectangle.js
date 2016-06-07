@@ -123,6 +123,26 @@ Rectangle.prototype.centerY = function() {
 };
 
 /**
+ * Check movable rectangle.
+ *
+ * @param {Number} dx amount of movement x
+ * @param {Number} dy amount of movement y
+ * @param {Rectangle} limit
+ */
+Rectangle.prototype.isMovable = function(dx, dy, limit) {
+  if (limit != null && limit instanceof Rectangle) {
+    var x = this.x + dx;
+    var y = this.y + dy;
+    if (x >= limit.x && y >= limit.y
+        && x + this.width <= limit.right()
+        && y + this.height <= limit.bottom()) {
+        return true;
+    }
+  }
+  return false;
+};
+
+/**
  * Move rectangle.
  *
  * @param {Number} dx amount of movement x
