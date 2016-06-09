@@ -5,7 +5,7 @@ Simple rectangle in JavaScript.
 
 [![BOWER version](https://badge-me.herokuapp.com/api/bower/Slowhand0309/rectangle.js.png)](http://badges.enytc.com/for/bower/Slowhand0309/rectangle.js)
 
-## Usage
+## Install
 
 ```sh
 $ bower install rectangle.js
