@@ -1,6 +1,6 @@
 {
   "name": "rectangle.js",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Simple rectangle in JavaScript.",
   "main": "rectangle.js",
   "scripts": {
