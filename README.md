@@ -3,6 +3,8 @@ Simple rectangle in JavaScript.
 
 [![Build Status](https://travis-ci.org/Slowhand0309/rectangle.js.svg?branch=master)](https://travis-ci.org/Slowhand0309/rectangle.js)
 
+[![BOWER version](https://badge-me.herokuapp.com/api/bower/Slowhand0309/rectangle.js.png)](http://badges.enytc.com/for/bower/Slowhand0309/rectangle.js)
+
 ## Usage
 
 ```sh
