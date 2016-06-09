@@ -128,6 +128,7 @@ Rectangle.prototype.centerY = function() {
  * @param {Number} dx amount of movement x
  * @param {Number} dy amount of movement y
  * @param {Rectangle} limit
+ * @return {Boolean}
  */
 Rectangle.prototype.isMovable = function(dx, dy, limit) {
   if (limit != null && limit instanceof Rectangle) {
@@ -151,6 +152,28 @@ Rectangle.prototype.isMovable = function(dx, dy, limit) {
 Rectangle.prototype.move = function(dx, dy) {
   this.x += dx;
   this.y += dy;
+};
+
+/**
+ * Check scalable rectangle.
+ *
+ * @param {Number} sx scale of x
+ * @param {Number} sy scale of y
+ * @param {Rectangle} limit
+ * @return {Boolean}
+ */
+Rectangle.prototype.isScalable = function(sx, sy, limit) {
+  if (limit != null && limit instanceof Rectangle) {
+    var r = new Rectangle();
+    r.copy(this);
+    r.scale(sx, sy);
+    if (r.x >= limit.x && r.y >= limit.y
+        && r.right() <= limit.right()
+        && r.bottom() <= limit.bottom()) {
+        return true;
+    }
+  }
+  return false;
 };
 
 /**

@@ -82,6 +82,28 @@ rectangle.centerY(); // => 117
 
 ※ Use `Math.floor`
 
+#### Check movable / scalable rectangle
+
+> isMovable
+
+```js
+var rectangle = new Rectangle();
+rectangle.set(5, 15, 150, 150);
+var limit = new Rectangle();
+limit.set(5, 10, 200, 200);
+rectangle.isMovable(5, 5, limit); // => true
+```
+
+> isScalable
+
+```js
+var rectangle = new Rectangle();
+rectangle.set(150, 150, 100, 100);
+var limit = new Rectangle();
+limit.set(50, 20, 260, 260);
+rectangle.isScalable(2.0, 1.5, limit); // => true
+```
+
 #### Update rectangle coordinate
 
 > move

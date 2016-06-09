@@ -112,8 +112,13 @@ describe("Rectangle movable scalable", function() {
         expect(rectangle.isMovable(5, 5, limit)).toBe(true);
      });
 
-    //  it("scalable", function (){
-    //  });
+     it("scalable", function (){
+        var rectangle = new Rectangle();
+        rectangle.set(150, 150, 100, 100);
+        var limit = new Rectangle();
+        limit.set(50, 20, 260, 260);
+        expect(rectangle.isScalable(2.0, 1.5, limit)).toBe(true);
+     });
 });
 
 describe("Rectangle move scale", function() {
