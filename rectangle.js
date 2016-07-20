@@ -6,10 +6,19 @@
 /**
  * Constructor.
  *
- * Set all zero.
+ * @param {Number} x
+ * @param {Number} y
+ * @param {Number} width
+ * @param {Number} height
+ *
+ * Set all zero if not argument.
  */
-var Rectangle = function() {
-  this.set(0, 0, 0, 0);
+var Rectangle = function(x, y, width, height) {
+  var _x = x || 0;
+  var _y = y || 0;
+  var _width = width || 0;
+  var _height = height || 0;
+  this.set(_x, _y, _width, _height);
 };
 
 /**
@@ -239,6 +248,15 @@ Rectangle.prototype.limit = function(rect) {
       this.height = rect.height;
     }
   }
+};
+
+/**
+ * Swap width and height.
+ */
+Rectangle.prototype.swap = function() {
+  var tmp = this.width;
+  this.width = this.height;
+  this.height = tmp;
 };
 
 if ("process" in global) {

@@ -176,3 +176,13 @@ describe("Rectangle contains limit", function() {
         expect(rectangle.height).toBe(10);
      });
 });
+
+describe("Rectangle utility", function() {
+
+     it("check swap", function (){
+        var rectangle = new Rectangle(5, 15, 100, 150);
+        rectangle.swap();
+        expect(rectangle.width).toBe(150);
+        expect(rectangle.height).toBe(100);
+     });
+});
