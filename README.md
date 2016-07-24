@@ -16,10 +16,11 @@ $ bower install rectangle.js
 #### Creating a rectangle
 
 ```js
-var rectangle = new Rectangle();
+var r1 = new Rectangle();
+// => x:0, y:0, width:0, height:0
+var r2 = new Rectangle(5, 7, 10, 20);
+// => x:5, y:7, width:10, height:20
 ```
-
-Set all value is zero.
 
 #### Setting rectangle value
 
@@ -155,6 +156,17 @@ rectangle.limit(rectLimit); // => x:30, y:30, width: 10, height:10
 ```
 
 To update a small rectangle.
+
+#### Utilitys
+
+> swap
+
+```js
+var rectangle = new Rectangle(5, 15, 100, 150);
+rectangle.swap(); // => width:150, height:100
+```
+
+Swap width and height.
 
 ## Licence
 
