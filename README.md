@@ -45,8 +45,7 @@ Set left, top, right, bottom value.
 > copy
 
 ```js
-var fromRect = new Rectangle();
-fromRect.set(20, 20, 200, 100);
+var fromRect = new Rectangle(20, 20, 200, 100);
 var rectangle = new Rectangle();
 rectangle.copy(fromRect); // => 20, 20, 200, 100
 ```
@@ -66,8 +65,7 @@ rectangle.empty(); // => true
 > left top right bottom
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(10, 15, 100, 200);
+var rectangle = new Rectangle(10, 15, 100, 200);
 rectangle.left(); // => 10
 rectangle.top(); // => 15
 rectangle.right(); // => 110
@@ -77,8 +75,7 @@ rectangle.bottom(); // => 215
 > centerX centerY
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(10, 15, 100, 205);
+var rectangle = new Rectangle(10, 15, 100, 205);
 rectangle.centerX(); // => 60
 rectangle.centerY(); // => 117
 ```
@@ -90,20 +87,16 @@ rectangle.centerY(); // => 117
 > isMovable
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(5, 15, 150, 150);
-var limit = new Rectangle();
-limit.set(5, 10, 200, 200);
+var rectangle = new Rectangle(5, 15, 150, 150);
+var limit = new Rectangle(5, 10, 200, 200);
 rectangle.isMovable(5, 5, limit); // => true
 ```
 
 > isScalable
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(150, 150, 100, 100);
-var limit = new Rectangle();
-limit.set(50, 20, 260, 260);
+var rectangle = new Rectangle(150, 150, 100, 100);
+var limit = new Rectangle(50, 20, 260, 260);
 rectangle.isScalable(2.0, 1.5, limit); // => true
 ```
 
@@ -112,16 +105,14 @@ rectangle.isScalable(2.0, 1.5, limit); // => true
 > move
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(5, 20, 100, 200);
+var rectangle = new Rectangle(5, 20, 100, 200);
 rectangle.move(10, 5); // => x:15, y:25
 ```
 
 > scale
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(5, 20, 100, 200);
+var rectangle = new Rectangle(5, 20, 100, 200);
 rectangle.scale(2.0, 2.0);
 ```
 
@@ -132,26 +123,34 @@ Scale rectangle from center.
 > contains
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(5, 15, 150, 150);
+var rectangle = new Rectangle(5, 15, 150, 150);
 rectangle.contains(6, 164); // => true
 ```
 
 > containsWithPadding
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(5, 15, 150, 150);
+var rectangle = new Rectangle(5, 15, 150, 150);
 rectangle.containsWithPadding(4, 164, 10); // => true
 ```
+
+#### Include rectangle
+
+> include
+
+```js
+var r1 = new Rectangle(10, 10, 200, 50);
+var r2 = new Rectangle(11, 11, 198, 48);
+r1.include(r2); // => true
+```
+
+#### Limit rectangle
 
 > limit
 
 ```js
-var rectangle = new Rectangle();
-rectangle.set(5, 15, 150, 150);
-var rectLimit = new Rectangle();
-rectLimit.set(30, 30, 10, 10);
+var rectangle = new Rectangle(5, 15, 150, 150);
+var rectLimit = new Rectangle(30, 30, 10, 10);
 rectangle.limit(rectLimit); // => x:30, y:30, width: 10, height:10
 ```
 

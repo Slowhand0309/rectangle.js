@@ -57,7 +57,7 @@ Rectangle.prototype.corner = function(left, top, right, bottom) {
  * @param {Rectangle} obj
  */
 Rectangle.prototype.copy = function(obj) {
-  if (obj != null && obj instanceof Rectangle) {
+  if (obj instanceof Rectangle) {
     this.x = obj.x;
     this.y = obj.y;
     this.width = obj.width;
@@ -140,7 +140,7 @@ Rectangle.prototype.centerY = function() {
  * @return {Boolean}
  */
 Rectangle.prototype.isMovable = function(dx, dy, limit) {
-  if (limit != null && limit instanceof Rectangle) {
+  if (limit instanceof Rectangle) {
     var x = this.x + dx;
     var y = this.y + dy;
     if (x >= limit.x && y >= limit.y
@@ -172,7 +172,7 @@ Rectangle.prototype.move = function(dx, dy) {
  * @return {Boolean}
  */
 Rectangle.prototype.isScalable = function(sx, sy, limit) {
-  if (limit != null && limit instanceof Rectangle) {
+  if (limit instanceof Rectangle) {
     var r = new Rectangle();
     r.copy(this);
     r.scale(sx, sy);
@@ -229,12 +229,28 @@ Rectangle.prototype.containsWithPadding = function(x, y, padding) {
 };
 
 /**
+ * Check for include other rectangle.
+ *
+ * @param {Rectangle} rect
+ * @return {Boolean} True if include rect, False not include.
+ */
+Rectangle.prototype.include = function(rect) {
+  if (rect instanceof Rectangle) {
+    if (this.left() < rect.left() && this.right() > rect.right()
+        && this.top() < rect.top() && this.bottom() > rect.bottom()) {
+        return true;
+    }
+  }
+  return false;
+};
+
+/**
  * Update rectangle value by limit.
  *
  * @param {Rectangle} rect Limit rectangle
  */
 Rectangle.prototype.limit = function(rect) {
-  if (rect != null && rect instanceof Rectangle) {
+  if (rect instanceof Rectangle) {
     if (this.x < rect.x) {
       this.x = rect.x;
     }

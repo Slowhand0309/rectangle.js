@@ -8,6 +8,14 @@ describe("Rectangle constructor with set zero", function() {
         expect(rectangle.width).toBe(0);
         expect(rectangle.height).toBe(0);
      });
+
+     it("set value", function (){
+        var rectangle = new Rectangle(3, 10, 20, 33);
+        expect(rectangle.x).toBe(3);
+        expect(rectangle.y).toBe(10);
+        expect(rectangle.width).toBe(20);
+        expect(rectangle.height).toBe(33);
+     });
 });
 
 describe("Rectangle empty", function() {
@@ -18,8 +26,7 @@ describe("Rectangle empty", function() {
      });
 
      it("check not empty", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(10, 10, 100, 100);
+        var rectangle = new Rectangle(10, 10, 100, 100);
         expect(rectangle.empty()).toBe(false);
      });
 });
@@ -66,38 +73,32 @@ describe("Rectangle set value", function() {
 describe("Rectangle position", function() {
 
      it("left", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(15, 15, 200, 100);
+        var rectangle = new Rectangle(15, 15, 200, 100);
         expect(rectangle.left()).toBe(15);
      });
 
      it("top", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(10, 10, 100, 100);
+        var rectangle = new Rectangle(10, 10, 100, 100);
         expect(rectangle.top()).toBe(10);
      });
 
      it("right", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(10, 10, 150, 150);
+        var rectangle = new Rectangle(10, 10, 150, 150);
         expect(rectangle.right()).toBe(160);
      });
 
      it("bottom", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(20, 20, 300, 300);
+        var rectangle = new Rectangle(20, 20, 300, 300);
         expect(rectangle.right()).toBe(320);
      });
 
      it("center x", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(5, 5, 153, 153);
+        var rectangle = new Rectangle(5, 5, 153, 153);
         expect(rectangle.centerX()).toBe(81);
      });
 
      it("center y", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(4, 7, 150, 153);
+        var rectangle = new Rectangle(4, 7, 150, 153);
         expect(rectangle.centerY()).toBe(83);
      });
 });
@@ -105,18 +106,14 @@ describe("Rectangle position", function() {
 describe("Rectangle movable scalable", function() {
 
      it("movable", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(5, 15, 150, 150);
-        var limit = new Rectangle();
-        limit.set(5, 10, 200, 200);
+        var rectangle = new Rectangle(5, 15, 150, 150);
+        var limit = new Rectangle(5, 10, 200, 200);
         expect(rectangle.isMovable(5, 5, limit)).toBe(true);
      });
 
      it("scalable", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(150, 150, 100, 100);
-        var limit = new Rectangle();
-        limit.set(50, 20, 260, 260);
+        var rectangle = new Rectangle(150, 150, 100, 100);
+        var limit = new Rectangle(50, 20, 260, 260);
         expect(rectangle.isScalable(2.0, 1.5, limit)).toBe(true);
      });
 });
@@ -124,8 +121,7 @@ describe("Rectangle movable scalable", function() {
 describe("Rectangle move scale", function() {
 
      it("move", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(5, 15, 150, 150);
+        var rectangle = new Rectangle(5, 15, 150, 150);
         rectangle.move(7, -8);
         expect(rectangle.x).toBe(12);
         expect(rectangle.y).toBe(7);
@@ -134,8 +130,7 @@ describe("Rectangle move scale", function() {
      });
 
      it("scale", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(50, 50, 100, 100);
+        var rectangle = new Rectangle(50, 50, 100, 100);
         rectangle.scale(1.5, 1.2);
         expect(rectangle.x).toBe(25);
         expect(rectangle.y).toBe(40);
@@ -144,31 +139,40 @@ describe("Rectangle move scale", function() {
      });
 });
 
-describe("Rectangle contains limit", function() {
+describe("Rectangle contains include limit", function() {
 
      it("contains", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(5, 15, 150, 150);
+        var rectangle = new Rectangle(5, 15, 150, 150);
         expect(rectangle.contains(6, 164)).toBe(true);
      });
 
      it("not contains", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(5, 15, 150, 150);
+        var rectangle = new Rectangle(5, 15, 150, 150);
         expect(rectangle.contains(4, 164)).toBe(false);
      });
 
      it("contains with padding", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(5, 15, 150, 150);
+        var rectangle = new Rectangle(5, 15, 150, 150);
         expect(rectangle.containsWithPadding(4, 164, 10)).toBe(true);
      });
 
+     it("include", function (){
+        var r1 = new Rectangle(10, 10, 200, 50);
+        var r2 = new Rectangle(11, 11, 198, 48);
+        expect(r1.include(r2)).toBe(true);
+     });
+
+     it("not include", function (){
+        var r1 = new Rectangle(10, 10, 200, 50);
+        expect(r1.include(null)).toBe(false);
+
+        var r2 = new Rectangle(11, 11, 199, 49);
+        expect(r1.include(r2)).toBe(false);
+     });
+
      it("limit", function (){
-        var rectangle = new Rectangle();
-        rectangle.set(5, 15, 150, 150);
-        var rectLimit = new Rectangle();
-        rectLimit.set(30, 30, 10, 10);
+        var rectangle = new Rectangle(5, 15, 150, 150);
+        var rectLimit = new Rectangle(30, 30, 10, 10);
         rectangle.limit(rectLimit);
         expect(rectangle.x).toBe(30);
         expect(rectangle.y).toBe(30);
