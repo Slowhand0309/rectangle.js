@@ -1,5 +1,8 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 before_install:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+notifications:
+  slack:
+    secure: Tpq41HIPzukrTkFZHRr77tcXJ+FUofmW3apBEfhODdMdLFO4FQDjbYkozaaWPQq7pO45bSqgnfYJCLkq3XmWcsBVsRHCnY8b4yvN5Op7ZV4or/dbC0LtxONSmLrQ2rhDQRVapa+/Mgg6AP5SLGIuIN1mvaMMZc/6uBDD9o5qJCKn+cE+J9FR15yCKH8os2trVsnt6s9eWqfIg6svW1e32DSj54Vn4KamjDDG9FDXrS9erQpw4RU7gCozPd17etKntua063Ya3lQFEWFewDblbJchu51zBobxFCn2GRbs4ns2uf6U3i6qo2+jnL4Z4YwCld5zaZ99ckWGszKWtkPwkHrVjR04eLl+alKKgGQONh95Xn3F8/u4CgQ/rIvA2Q6YoJROnQ+ly+YHpVUfTSbhomoNtbldoxPq+BKkUwDmwPGHVH011owAPzIXC9Wsj7It80T2nJfJSboCjznkFphFI7TEpub931f9MjAcZtqiL+9j9Wjpe2ndD98gDcPxJGYBcmV8JPmey926XQ8MDkFneFEjRiutY7yDtxXTDfnWnWUgnicR2yR9ZJWt4aA8avo0guAUYarKESrULtPGncEGSWMbKzJ9MUdniLiNtRRJHqjaj4yCM1zLCO1A/WePcjDp4YQvnR5meEqnEKBypPbx8bA7pBG9mbKZYsz4my/LkIk=
