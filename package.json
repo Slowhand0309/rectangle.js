@@ -16,7 +16,7 @@
   "author": "Slowhand0309",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.3",
     "grunt-contrib-jasmine": "^1.0.3"
   }
 }
