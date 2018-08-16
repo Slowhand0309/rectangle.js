@@ -17,6 +17,6 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "^1.0.3",
-    "grunt-contrib-jasmine": "^1.0.3"
+    "grunt-contrib-jasmine": "^2.0.2"
   }
 }
